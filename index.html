@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Happy Birthday Kanu Rani ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{
+    background: radial-gradient(circle at top, #1a001f, #000);
+    color:white;
+    overflow:hidden;
+    height:100vh;
+}
+
+/* Floating Hearts */
+.heart{
+    position:absolute;
+    bottom:-50px;
+    color:#ff4da6;
+    font-size:20px;
+    animation: floatUp linear infinite;
+    text-shadow:0 0 10px #ff4da6,0 0 20px #ff1a8c;
+}
+@keyframes floatUp{
+    0%{transform:translateY(0) scale(1);opacity:1}
+    100%{transform:translateY(-120vh) scale(1.5);opacity:0}
+}
+
+/* Card */
+.card{
+    position:absolute;
+    top:50%;left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+    background:rgba(255,255,255,0.05);
+    padding:40px;
+    border-radius:20px;
+    backdrop-filter:blur(20px);
+    box-shadow:0 0 40px rgba(255,0,128,0.4);
+    width:90%;max-width:500px;
+}
+
+.name{
+    font-size:2.8rem;
+    font-weight:700;
+    background:linear-gradient(45deg,#ff66cc,#ff1a75);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    text-shadow:0 0 20px #ff1a75;
+}
+
+.typewriter{
+    margin-top:20px;
+    font-size:1.1rem;
+    min-height:60px;
+}
+
+button{
+    margin-top:20px;
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(45deg,#ff1a75,#ff66cc);
+    color:white;
+    font-size:1rem;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 0 15px #ff1a75;
+}
+button:hover{transform:scale(1.1);box-shadow:0 0 30px #ff66cc}
+
+.hidden{display:none}
+
+#specialMsg{
+    margin-top:20px;
+    font-size:1rem;
+    color:#ffd6f6;
+    animation: fadeIn 2s ease forwards;
+}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <div class="name">Happy Birthday, Kanu Rani 💖</div>
+    <div class="typewriter" id="message"></div>
+
+    <button onclick="showLove()">Tap for Surprise 🎁</button>
+    <div id="specialMsg" class="hidden"></div>
+
+    <button onclick="moreLove()" style="margin-top:10px">Why You're Special ✨</button>
+</div>
+
+<audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_5c2b6686b1.mp3?filename=romantic-background-110232.mp3" type="audio/mp3">
+</audio>
+
+<script>
+const name = "Kanu Rani";
+
+/* Floating Hearts */
+function createHeart(){
+    const heart=document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="❤";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=(3+Math.random()*5)+"s";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),8000);
+}
+setInterval(createHeart,300);
+
+/* Typewriter Text */
+const text=`To the most beautiful soul, ${name}… 🌸 Today is all about YOU. Your smile, your laugh, your existence makes my world brighter every single day.`;
+
+let i=0;
+function typeWriter(){
+    if(i<text.length){
+        document.getElementById("message").innerHTML+=text.charAt(i);
+        i++;
+        setTimeout(typeWriter,40);
+    }
+}
+typeWriter();
+
+/* Surprise Message */
+function showLove(){
+    const msg=document.getElementById("specialMsg");
+    msg.classList.remove("hidden");
+    msg.innerHTML=`${name}, you are my favorite notification, my happiest thought, and the best part of my life. 💕 Never forget how loved you are.`;
+}
+
+/* Why Special */
+function moreLove(){
+    alert(`${name}, you're kind, adorable, funny, caring, and somehow make everything better just by being there. 💖`);
+}
+</script>
+
+</body>
+</html>
